@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+vector<vector<int> > transpose(
+    vector<vector<int> > m,
+    int row, int col)
+{
+    vector<vector<int> > t(
+        col, vector<int>(row));
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < col; j++) {
+            t[j][i] = m[i][j];
+        }
+    }
+ 
+    return t;
+}
+
+void rsort(vector<vector<int> >& array)
+{
+ 
+    for (int i = 0; i < (int)array.size(); i++) {
+ 
+        sort(array[i].begin(), array[i].end());
+    }
+}
+void sortCol(vector<vector<int> > m,
+             int N, int M)
+{
+    vector<vector<int> > array
+        = transpose(m, N, M);
+    rsort(array);
+ 
+
+    m= transpose(array, M, N);
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+ 
+            cout << m[i][j] << " ";
+        }
+        cout << '\n';
+    }
+}
+
+int main()
+{
+   vector<vector<int> > m = { {3,4 },{7,8},{1,2}};
+   
+    int N = m.size();
+    int M = m[0].size();
+ 
+    sortCol(m, N, M);
+ 
+    return 0;
+}

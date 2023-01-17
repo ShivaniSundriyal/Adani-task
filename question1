@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+int** c(int s,int r)
+{
+
+   
+   
+    int** arr = 0;
+     arr = new int*[s];
+    
+      for (int h = 0; h < s; h++)
+      {
+            arr[h] = new int[r];
+    
+            for (int w = 0; w < r; w++)
+            {
+                  arr[h][w] = rand()%100;  
+            }
+      }
+    
+      return arr;
+}
+int main()
+{
+   int s,r;
+   cout<<"Enter the number of rows:";
+   cin>>s;
+   cout<<"Enter the number of columns";
+   cin>>r;
+   int** Array = c(s, r);
+   return 0;
+}
+
